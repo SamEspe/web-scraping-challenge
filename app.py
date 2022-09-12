@@ -10,4 +10,14 @@ app = Flask(__name__)
 
 # Connect Flask to MongoDB
 
-# 
+# Make homepage route
+#@app.route("/")
+#def homepage():
+
+# Make /scrape route
+#@app.route("/scrape")
+#def scrape():
+
+# End part to make Flask work
+if __name__ == "__main__":
+    app.run(debug=True)
