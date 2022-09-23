@@ -24,8 +24,8 @@ def scrape():
     # Using the soup object, the headline is the class 'content_title' and the description is the class 'article_teaser_body'
     results = soup_news.find('div', class_='article_teaser_body')
     # Assign headline and description to variables
-    headline = soup_news.find('div', class_ = 'content_title')
-    description = soup_news.find('div', class_ = 'article_teaser_body')
+    headline = soup_news.find('div', class_ = 'content_title').get_text()
+    description = soup_news.find('div', class_ = 'article_teaser_body').get_text()
 
 # Scraping for the Featured Image
     # Load in new URL
@@ -109,3 +109,9 @@ def scrape():
 
 # Quit the browser
     browser.quit()
+
+# Create the dictionary
+    output = {"headline": headline, "description": description, "featured_image_url" : image_full_url, "mars_table_html" : mars_table_html, "hemispheres" : hemispheres}
+
+# Return Stuff
+    return output
